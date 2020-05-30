@@ -8,9 +8,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "getAllTask",
+            query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
+            )
+})
+
+
 @Table(name = "task")
 public class Task {
     @Id
